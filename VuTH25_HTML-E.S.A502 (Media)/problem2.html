@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Media/embedding: Task 2</title>
+    <style>
+      body {
+        background-color: #fff;
+        color: #333;
+        font: 1em / 1.4 Helvetica Neue, Helvetica, Arial, sans-serif;
+        padding: 1em;
+        margin: 0;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      video {
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Video embed</h1>
+
+    <video muted controls width="320 " height="240" >
+      <source src="./media/Xiên_Nướng_Hà_Nội_Về_Đêm.mp4" type="video/mp4" />
+      <track src="./media/subtitles_en.vtt" label="English" kind="subtitles" srclang="en" default/>
+      Your browser does not support the video tag.
+    </video>
+  </body>
+</html>
