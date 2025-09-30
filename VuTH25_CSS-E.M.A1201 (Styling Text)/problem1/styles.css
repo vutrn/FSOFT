@@ -1,0 +1,113 @@
+/* General setup */
+@font-face {
+  font-family: lovato;
+  src: url(fonts/Lovato-Light-webfont.ttf);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: lovato;
+  /* font-size: 10px; */
+}
+
+body {
+  margin: 0 auto;
+  min-width: min-content;
+  max-width: max-content;
+}
+
+/* Layout */
+
+section {
+  float: left;
+  width: 50%;
+}
+
+aside {
+  float: left;
+  width: 30%;
+}
+
+nav {
+  float: left;
+  width: 20%;
+}
+
+footer {
+  clear: both;
+}
+
+header,
+section,
+aside,
+nav,
+footer {
+  padding: 20px;
+}
+
+/* header and footer */
+
+header,
+footer {
+  border-top: 5px solid #a66;
+  border-bottom: 5px solid #a66;
+}
+
+/* WRITE YOUR CODE BELOW HERE */
+h1 {
+  text-align: center;
+}
+
+h1,
+h2 {
+  letter-spacing: 5px;
+  margin-bottom: 25px;
+}
+
+section {
+  word-spacing: 5px;
+}
+
+p {
+  text-indent: 20px;
+  line-height: 22px;
+}
+
+a {
+  color: #a66;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+a:focus {
+  text-decoration: none;
+}
+
+a[href^="http"]{
+  background-image: url(./image.png);
+  background-repeat: no-repeat;
+  background-size: 20px;
+  background-position: right center;
+  padding-right: 25px;
+}
+
+aside li {
+  line-height: 22px;
+}
+
+nav ul li{
+  border: 1px solid #a66;
+  list-style-type: none;
+  padding: 20px;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+nav ul li a {
+  text-decoration: none;
+}
