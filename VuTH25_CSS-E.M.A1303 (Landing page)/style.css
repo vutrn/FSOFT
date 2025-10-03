@@ -1,0 +1,382 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+* {
+  /* padding: 0; */
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "poppins", sans-serif;
+}
+
+p {
+  font-size: 14px;
+}
+
+/* SECTION 1 */
+
+.section-hero {
+  background-image: url(./resources/app.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  /* border: 1px solid red; */
+  margin-bottom: 40px;
+}
+
+.panel-download {
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 10px 15px 15px 15px;
+  width: min(320px, 90vw);
+}
+
+.panel-download p {
+  color: white;
+  padding: 10px 0;
+}
+
+hr {
+  width: 90%;
+  /* margin: 10px 0; */
+  opacity: 0.3;
+}
+
+.button-download {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  padding: 5px 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  padding: 3px 0;
+  width: 100%;
+  font-size: 12px;
+}
+
+.button-download img {
+  filter: invert(1);
+  width: 10px;
+}
+
+.button-take_tour {
+  background: #000;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+}
+
+/* screen <= 768 */
+@media (max-width: 768px) {
+  .section-hero {
+    flex-direction: column;
+    align-items: normal;
+    padding: 0;
+  }
+  .button-download {
+    padding: 10px 0;
+    border-radius: 0;
+  }
+
+  .panel-download {
+    background: none;
+    width: auto;
+    padding: 0;
+  }
+
+  .button-take_tour {
+    border-radius: 0;
+  }
+
+  .panel-download p,
+  .panel-download hr {
+    display: none;
+  }
+}
+
+/* SECTION THE APP */
+
+.section-the_app {
+  height: 600px;
+  /* border: 1px solid blue; */
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+.the_app_left_side {
+  max-width: 50rem;
+}
+
+.section-the_app h1 {
+  font-size: 60px;
+}
+
+.section-the_app h2 {
+  font-size: 48px;
+  color: #49ad4d;
+  margin: 15px 0;
+}
+
+.p-the_app {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.section-the_app span {
+  font-size: 22px;
+}
+
+.section-the_app button {
+  border: none;
+  padding: 10px 20px;
+  margin: 30px 0;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.logo {
+  width: 20px;
+}
+
+@media (max-width: 768px) {
+  .section-the_app {
+    flex-direction: column;
+    margin-top: 70px;
+    height: auto;
+  }
+
+  .section-the_app h1 {
+    font-weight: 600;
+  }
+
+  .section-the_app h2 {
+    font-weight: 600;
+  }
+
+  .the_app_left_side {
+    display: flex;
+    flex-direction: column;
+    /* gap: 10px; */
+  }
+
+  .p-the_app {
+    order: 2;
+    margin: 10px 0;
+  }
+
+  .section-the_app button {
+    order: 3;
+    background: none;
+    margin: 10px auto;
+  }
+}
+
+/* SECTION CLARITY */
+
+.section-clarity {
+  padding: 80px 20px;
+  background: #f1f1f1;
+  display: flex;
+  gap: 150px;
+}
+
+.clarity-right_side {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.section-clarity h1 {
+  font-size: 60px;
+}
+
+.section-clarity h2 {
+  font-size: 48px;
+  color: #f43d2e;
+}
+
+.section-clarity span {
+  font-size: 22px;
+}
+
+.img-clarity {
+  filter: grayscale(1);
+}
+
+@media (max-width: 768px) {
+  .section-clarity {
+    flex-direction: column;
+    gap: 50px;
+    padding: 90px 20px;
+  }
+
+  .img-clarity {
+    width: 100%;
+    border-radius: 10px;
+  }
+
+  .section-clarity h1 {
+    font-size: 60px;
+    font-weight: 500;
+  }
+
+  .section-clarity h2 {
+    font-size: 48px;
+    font-weight: 500;
+  }
+}
+
+/* SECTION FEATURES */
+
+.section-features {
+  background: #616161;
+  color: #fff;
+  text-align: center;
+  padding: 60px 0;
+  gap: 20px;
+}
+
+.section-features h1 {
+  font-size: 60px;
+  font-weight: 600;
+  color: white;
+}
+
+.section-features p {
+  color: white;
+}
+
+.feature-icons_container {
+  display: grid;
+  align-items: center;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 80px 40px;
+  /* max-width: 1000px; */
+  margin: 0 auto;
+  padding: 40px 0;
+}
+
+.feature-icons_container span {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.section-features i {
+  font-size: 50px;
+}
+
+@media (min-width: 768px) {
+  .section-features {
+    padding: 90px 20px;
+  }
+}
+
+/* SECTION PRICING */
+
+.section-pricing {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 60px 20px;
+}
+
+.section-pricing h1 {
+  font-size: 60px;
+  font-weight: 500;
+}
+.pricing-container {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.pricing-card {
+  width: 100%;
+  margin: 10px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+}
+
+.pricing-card p {
+  border-bottom: 1px solid #ccc;
+  padding: 10px 0;
+}
+
+.text-basic {
+  background: #616161;
+  color: white;
+  padding: 20px !important;
+}
+
+.text-premium {
+  background: #f44336;
+  color: white;
+  padding: 20px !important;
+}
+
+.price-number {
+  color: grey;
+  font-size: 24px;
+  padding: 15px 0 !important;
+}
+
+.pricing-card button {
+  background: #000;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  margin: 15px 0;
+}
+
+.pricing-card div {
+  background: rgb(241, 241, 241);
+}
+
+.pricing-button button img {
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .pricing-container{
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* SECTION FOOTER */
+
+.footer {
+  background: rgb(241, 241, 241);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 45px 0;
+  gap: 15px;
+}
+
+.footer i {
+  font-size: 20px;
+  margin: 0 1px;
+}
+
+.footer a {
+  color: black;
+}
