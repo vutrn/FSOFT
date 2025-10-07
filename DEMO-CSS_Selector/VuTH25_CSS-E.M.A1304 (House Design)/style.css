@@ -1,0 +1,159 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Zalando+Sans:ital,wght@0,200..900;1,200..900&display=swap");
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "zalando sans";
+  /* line-height: 1.5rem; */
+}
+
+body {
+  margin: auto;
+  max-width: 1200px;
+}
+
+p {
+  font-size: 24px;
+  /* color: #6f707a; */
+}
+/* #f0f0f0 */
+/* #6f707a */
+
+.topbar {
+  margin: 1rem 1rem;
+}
+
+.topbar i {
+  font-size: 2rem;
+}
+
+.header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin: 0 1rem;
+}
+
+.introduction {
+  line-height: 4rem;
+}
+
+.introduction h3 {
+  font-size: 29px;
+  color: #f0f0f0;
+  font-weight: 400;
+}
+
+.introduction h2 {
+  font-size: 32px;
+  color: #6f707a;
+  font-weight: 400;
+}
+
+.introduction h1 {
+  font-size: 48px;
+  color: #212121;
+  font-weight: 400;
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.text-recent-work {
+  margin: 2rem 1rem;
+}
+
+.image-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  /* border: 1px solid #dd3e3e; */
+  gap: 1rem;
+}
+
+.image-container img {
+  width: 100%;
+  height: auto;
+  padding: 0 1rem;
+}
+
+.image-container p {
+  margin: 1.5rem 1rem;
+  color: #6f707a;
+}
+
+.footer {
+  margin: 2rem 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.footer .contact-info {
+  background: #000;
+  color: white;
+  padding: 1rem;
+  line-height: 4rem;
+  padding-bottom: 3rem;
+}
+
+.contact-info i {
+  margin-right: 2rem;
+}
+
+.footer .contact-us {
+  background: #616161;
+  color: white;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 2.5rem;
+  padding: 1rem;
+}
+
+.footer .like-us {
+  background: #9e9e9e;
+  color: white;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.5rem;
+}
+
+.link a {
+  margin-top: 2rem;
+  color: black;
+}
+
+@media (max-width: 768px) {
+  .header {
+    grid-template-columns: 1fr;
+  }
+
+  .image-container {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .footer {
+    grid-template-columns: 1fr;
+  }
+
+  .footer .contact-info {
+    padding-bottom: 0;
+  }
+
+  .footer .contact-us{
+    gap: 1rem;
+    padding-bottom: 6rem;
+  }
+
+  .link {
+    text-align: center;
+  }
+}
