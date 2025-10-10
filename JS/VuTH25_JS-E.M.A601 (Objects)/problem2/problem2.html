@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Object basics: Task 2</title>
+    <style>
+      p {
+        color: purple;
+        margin: 0.5em 0;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+    </style>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <section class="preview"></section>
+  </body>
+  <script>
+    let info;
+
+    // Add your code here
+    const person = {
+      name: "San Tune Emtepre",
+      nationality: "Vietnamese",
+      genre: "V-Pop",
+      debut: 2000,
+      songs: [
+        { name: "There's no one at all", release: 2020 },
+        { name: "Noi nay co anh", release: 2017 },
+        { name: "Lac Troi", release: 2015 },
+      ],
+    };
+    info = `${person.name} is a ${person.nationality} singer who debuted in ${person.debut}. Their genre is ${person.genre} and some of their songs are: ${person.songs[0].name} released in ${person.songs[0].release}, ${person.songs[1].name} released in ${person.songs[1].release}, and ${person.songs[2].name} released in ${person.songs[2].release}.`;
+    // Don't edit the code below here!
+
+    const section = document.querySelector("section");
+    let para1 = document.createElement("p");
+    para1.textContent = info;
+    section.appendChild(para1);
+  </script>
+</html>
