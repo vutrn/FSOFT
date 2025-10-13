@@ -21,7 +21,7 @@
   </body>
   <script>
     let i = 500;
-    let para = document.createElement('p');
+    let para = document.createElement("p");
 
     function isPrime(num) {
       for (let i = 2; i < num; i++) {
@@ -34,9 +34,14 @@
     }
 
     // Add your code here
+    for (let i = 500; i > 0; i--) {
+      if (isPrime(i) == true) {
+        para.textContent += i + " ";
+      }
+    }
 
     // Don't edit the code below here!
-    let section = document.querySelector('section');
+    let section = document.querySelector("section");
     section.appendChild(para);
   </script>
 </html>

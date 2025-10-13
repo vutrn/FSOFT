@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="class-div" id="div1">this is a div</div>
+    <div class="class-div" id="div2">
+      this is second div
+      <p class="para">para</p>
+    </div>
+    <div class="div3">div3</div>
+    <p class="para">second para</p>
+    <p>qưeqwe</p>
+
+    <input type="text" name="username" />
+    <input type="number" name="" id="" />
+
+    <script>
+      const para = document.querySelector(".para");
+      para.closest(".class-div").setAttribute("style", "color: brown");
+
+      console.log(para.closest("body"));
+
+      // const divEl = document.getElementsByTagName("div");
+      // console.log(divEl);
+      // const divbyClass = document.getElementsByClassName("class-div");
+      // console.log(divbyClass);
+      // const divByName = document.getElementsByName("div1");
+      // console.log(divByName);
+
+      // const divQuery = document.querySelector("div");
+      // console.log("divquery:", divQuery);
+      // const para = document.querySelector(".container p");
+      // console.log(para);
+
+      // divbyClass[0].style.color = "red";
+      // divbyClass[0].style.backgroundColor = "yellow";
+      // divbyClass[0].style.cssText = "color: green";
+
+      const div3 = document.querySelector(".div3");
+      div3.setAttribute("style", "color: purple; background-color: orange");
+
+      // Object.assign(divbyClass[1].style, {
+      //   color: "blue",
+      //   backgroundColor: "pink",
+      // });
+
+      // const test = document.querySelector(".test");
+      // console.log(test);
+
+      const input = document.querySelector("input[type=text]");
+      console.log(input);
+      input.setAttribute("type", "password");
+      console.log(input.getAttribute("name"));
+      // c2:
+      input.type = "number";
+      console.log(input.type);
+
+      // innerText, innerHTML, textContent
+      const container1 = document.querySelector("#div1");
+      container1.innerText = "innerText";
+      container1.innerHTML = "innerHTML";
+      container1.innerContent = "text content";
+
+      // classList
+      container1.classList.add("new-class");
+      container1.classList.remove("class-div");
+      container1.classList.toggle("none");
+      console.log(container1.classList.contains("new-class"));
+      // setAttribute
+      container1.className = "con5";
+
+      // createElement
+      const p = document.createElement("p");
+      console.log(p);
+      p.innerText = "this is a new para";
+      container1.appendChild(p);
+
+      container1.remove();
+
+      // Q&A
+      // setAttribute vs element.property
+      // innerText vs textContent vs innerHTML
+      // append vs appendChild
+      // insertAdjacentElement
+      // closest(className)
+
+      // event
+      // 1. inline event
+      // 2. element node event
+      // 3. addEventListener
+    </script>
+  </body>
+</html>

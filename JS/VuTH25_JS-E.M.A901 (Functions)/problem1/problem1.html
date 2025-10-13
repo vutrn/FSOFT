@@ -20,23 +20,22 @@
     <section class="preview"></section>
   </body>
   <script>
-    let names = [
-      'Chris',
-      'Li Kang',
-      'Anne',
-      'Francesca',
-      'Mustafa',
-      'Tina',
-      'Bert',
-      'Jada',
-    ];
-    let para = document.createElement('p');
+    let names = ["Chris", "Li Kang", "Anne", "Francesca", "Mustafa", "Tina", "Bert", "Jada"];
+    let para = document.createElement("p");
 
     // Add your code here
+    function chooseName() {
+      for (let i = 0; i < names.length; i++) {
+       let value = Math.floor(Math.random() * i)
+        para.textContent = names[value];
+        console.log(value)
+      }
+    }
+    chooseName();
 
     // Don't edit the code below here!
 
-    const section = document.querySelector('section');
+    const section = document.querySelector("section");
 
     section.appendChild(para);
   </script>
