@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="button1" style="background: red">button</button>
+    <button id="button2">button 2</button>
+    <button>button 3</button>
+    <input type="text" name="username" id="" />
+    <script>
+      const btn1 = document.querySelector("#button1");
+      const btn2 = document.querySelector("#button2");
+      const input = document.querySelector("input[type=text]");
+      // function inlineEvent() {
+      //   alert("inline event");
+      // }
+      // btn.onclick = function () {
+      //   alert("button clicked");
+      // };
+      // btn.addEventListener("click", function () {
+      //   alert("button clicked - 2");
+      // });
+      // btn.addEventListener("click", function () {
+      //   alert("button clicked - 3");
+      // });
+
+      // event object
+      btn1.addEventListener("click", function (e) {
+        console.log(e.target.getAttribute("style"));
+      });
+      btn2.addEventListener("click", function (e) {
+        console.log(input.value);
+      });
+
+      input.addEventListener("input", function (e) {
+        console.log(e.target.value);
+      });
+
+      function randomColorRGB() {
+        const r = Math.floor(Math.random() * 256);
+        const g = Math.floor(Math.random() * 256);
+        const b = Math.floor(Math.random() * 256);
+        return `rgb(${r},${g},${b})`;
+      }
+
+      function randomColorHex() {
+        const hex = Math.floor(Math.random() * 16777215).toString(16);
+        return `#${hex}`;
+      }
+      console.log(randomColorHex())
+    </script>
+  </body>
+</html>
