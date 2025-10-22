@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button>Button 1</button>
+    <button>Button 2</button>
+    <button>Button 3</button>
+    <button>Button 4</button>
+
+    <script>
+      var nodes = document.getElementsByTagName("button");
+      for (var i = 0; i < nodes.length; i++) {
+        nodes[i].addEventListener("click", (function(index) {
+          return function() {
+            console.log("You clicked element #" + index);
+          };
+        })(i));
+      } 
+      // The output will always be "You clicked element #4" because by the time any button is clicked, 
+      // the loop has completed and the variable 'i' has the value 4.
+    </script>
+  </body>
+</html>
