@@ -1,0 +1,12 @@
+{
+  "name": "lecture11-12",
+  "version": "1.0.0",
+  "type": "commonjs",
+  "main": "lecture11-12.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "json-server": "^1.0.0-beta.3"
+  }
+}

@@ -10,14 +10,14 @@ class App {
     this.previousButton = document.getElementById('previous');
     this.nextButton = document.getElementById('next');
 
-    this.submitButton.addEventListener('click', this.showResults);
-    this.previousButton.addEventListener('click', this.showPreviousSlide);
+    this.submitButton.addEventListener('click', this.showResults.bind(this));
+    this.previousButton.addEventListener('click', this.showPreviousSlide.bind(this));
     this.nextButton.addEventListener('click', this.showNextSlide.bind(this));
 
     this.currentSlide = 0;
   }
 
-  buildQuiz() {
+  buildQuiz () {
     const output = this.questions.map((currentQuestion) =>
       currentQuestion.render()
     );
@@ -25,7 +25,7 @@ class App {
     this.quizContainer.innerHTML = output.join('');
   }
 
-  showResults() {
+  showResults () {
     const answerContainers = this.quizContainer.querySelectorAll('.answers');
 
     let numCorrect = 0;
@@ -46,7 +46,7 @@ class App {
     this.resultsContainer.innerHTML = `${numCorrect} out of ${this.questions.length}`;
   }
 
-  showSlide(n) {
+  showSlide (n) {
     if (this.slides === undefined) {
       this.slides = document.querySelectorAll('.slide');
     }
@@ -70,17 +70,17 @@ class App {
     }
   }
 
-  showNextSlide() {
-    console.log(this);
+  showNextSlide () {
+    console.log("next", this);
     this.showSlide(this.currentSlide + 1);
   }
 
-  showPreviousSlide() {
-    console.log(this);
+  showPreviousSlide () {
+    console.log("prev", this);
     this.showSlide(this.currentSlide - 1);
   }
 
-  start() {
+  start () {
     this.buildQuiz();
     this.showSlide(0);
   }
