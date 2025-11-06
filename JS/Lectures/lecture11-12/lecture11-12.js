@@ -22,29 +22,28 @@
 // xml http request => ajax => axios, fetch
 // callback hell
 
-// const promise = new Promise((resolve, reject) => {
-//   resolve(10)
-//   reject("Error occurred")
-// })
+const promise = new Promise((resolve, reject) => {
+  resolve(10)
+  reject("Error occurred")
+})
 
-// promise
-//   .then((res) => {
-//     console.log(res)
-//     return new Promise((resolve, reject) => {
-//       resolve(40)
-//       reject("Error in second promise")
-
-//     })
-//   })
-//   .then((res) => {
-//     console.log(res)
-//   })
-//   .catch((err) => {
-//     console.log(err)
-//   })
-//   .finally(() => {
-//     console.log("finally")
-//   })
+promise
+  .then((res) => {
+    console.log(res)
+    return new Promise((resolve, reject) => {
+      resolve(40)
+      reject("Error in second promise")
+    })
+  })
+  .then((res) => {
+    console.log(res)
+  })
+  .catch((err) => {
+    console.log(err)
+  })
+  .finally(() => {
+    console.log("finally")
+  })
 
 
 // Promise.All

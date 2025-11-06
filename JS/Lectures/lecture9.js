@@ -99,12 +99,13 @@ class HandleEvent {
     this.btn.addEventListener('click', this.handleClick.bind(this))
   }
 
-  handleClick () {
-    this.implement();
-  }
-  // handleClick = () => {
+  // handleClick () {
   //   this.implement();
   // }
+  handleClick = () => {
+    this.implement();
+    console.log(this)
+  }
 
   implement () {
     console.log('click')
