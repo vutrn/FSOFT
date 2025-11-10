@@ -11,7 +11,7 @@ function App() {
   const [value, setValue] = useState("");
   const [list, setList] = useState<Item[]>([]);
   const [filter, setFilter] = useState<"all" | "todo" | "done">("all");
-  const [deleteShow, setDeleteShow] = useState(false);
+  const [hoveredId, setHoveredId] = useState<number | null>(null);
 
   useEffect(() => {
     const saved = localStorage.getItem("todo-list");
@@ -97,12 +97,8 @@ function App() {
             <ul>
               {filteredList.map((item, index) => (
                 <li
-                  onMouseOver={() => {
-                    setDeleteShow(true);
-                  }}
-                  onMouseLeave={() => {
-                    setDeleteShow(false);
-                  }}
+                  onMouseOver={() => setHoveredId(item.id)}
+                  onMouseLeave={() => setHoveredId(0)}
                   key={item.id}
                   className={`mb-2 flex cursor-pointer justify-between border-b border-amber-300 text-lg ${item.status === "done" ? "text-gray-500 line-through" : ""}`}
                   onClick={() => handleToggleStatus(item.id)}
@@ -110,7 +106,7 @@ function App() {
                   {index + 1}. {item.name}
                   <Trash
                     onClick={() => HandleDeleteTask(item.id)}
-                    className={`${deleteShow === true ? "text-red-500 hover:fill-red-400" : "hidden"}`}
+                    className={`${hoveredId === item.id ? "text-red-500 hover:fill-red-400" : "invisible"}`}
                   />
                 </li>
               ))}
