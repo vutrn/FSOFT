@@ -1,97 +1,38 @@
-import { useCallback, useEffect, useMemo, useRef, useState, type ChangeEvent } from "react";
-import "./App.css";
-import Content from "./components/Content";
+import { createContext, useState } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import NotFound from "./pages/NotFound";
+import UserDetail from "./pages/UserDetail";
+import Users from "./pages/Users";
+import PrivateRouter from "./pages/PrivateRouter";
 
-export interface TodoItem {
-  name: string;
-  status: "todo" | "done";
-  id: number;
-}
+export const AuthContext = createContext({} as any);
 
 function App() {
-  const [value, setValue] = useState("");
-  const [list, setList] = useState<TodoItem[]>([]);
-  const [toggle, setToggle] = useState(false);
-  const [products, setProducts] = useState([]);
-
-  // const totalPrice = useMemo(() => {
-  //   let sum = products.reduce((acc, curr) => {
-  //     return acc + curr.price * curr.quantity;
-  //   }, 0);
-  // }, []);
-
-  const handleInput = (e: ChangeEvent<HTMLInputElement>) => {
-    setValue(e.target.value);
-    // console.log(value)
-  };
-
-  const handleSubmit = useCallback(() => {
-    setList([...list, { name: inputRef.current!.value, status: "todo", id: Date.now() }]);
-    // setValue('')
-    inputRef.current!.value = "";
-    inputRef.current?.focus();
-    // The ! tells TypeScript "I promise this isn't null"
-  }, []);
-
-  // case 1
-  useEffect(() => {
-    // console.log("useEffect 1 without deps");
-  });
-  // without deps -> run every render (mount + update)
-
-  // case 2
-  useEffect(() => {
-    // console.log("use effect 2 with deps");
-  }, []);
-  // with empty deps -> run only once (mount)
-
-  //case 3
-  useEffect(() => {
-    // console.log("use effect 3 with deps [list]");
-  }, [list]);
-
-  // useEffect(() => {
-  //   const timer = setInterval(() => {
-  //     setTime(time + 1);
-  //   }, 1000);
-
-  //   // return used to clean up side effects when component unmounts or before re-running the effect
-  //   return () => clearInterval(timer);
-  // }, [time]);
-
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     setTime(time + 1);
-  //   }, 1000);
-  // }, [time]);
-
-  const counterRef = useRef(0);
-  counterRef.current++;
-  // console.log(counterRef);
-
-  // useRef to keep track of mutable values that do not cause re-renders when updated
-  // also used to reference DOM elements directly
-
-  const inputRef = useRef<HTMLInputElement>(null);
-
+  const [isLogin, setIsLogin] = useState(false);
+  const [user, setUser] = useState({});
+  console.log(user);
   return (
-    <>
-      <button onClick={() => setToggle(!toggle)}>toggle</button>
-      <div>
-        <input ref={inputRef} type='text' onChange={handleInput} />
-        <button onClick={handleSubmit}>add</button>
-      </div>
-      <div>
-        {list.map((item, index) => (
-          <p key={index}>{item.name}</p>
-        ))}
-      </div>
-      <Header toggle={toggle} setToggle={setToggle} />
-      <Content />
-      <Footer />
-    </>
+    <AuthContext.Provider value={{ user, setUser }}>
+      <BrowserRouter>
+        <Header />
+        <Routes>
+          <Route path='/home' element={<Home />} />
+
+          <Route path='/' element={<PrivateRouter isLogin={isLogin} />}>
+            <Route path='/users' element={<Users />} />
+            <Route path='/users/:userId' element={<UserDetail />} />
+          </Route>
+
+          <Route path='/login' element={<Login isLogin={isLogin} setIsLogin={setIsLogin} />} />
+          <Route path='*' element={<NotFound />} />
+        </Routes>
+        <Footer />
+      </BrowserRouter>{" "}
+    </AuthContext.Provider>
   );
 }
 
@@ -117,6 +58,17 @@ export default App;
 // render = update : every time React execute the function component
 // load: when all resources (JS, CSS, images) are loaded
 
+// useRef to keep track of mutable values that do not cause re-renders when updated
+// also used to reference DOM elements directly
+
 // memo / React.memo : HOC - higher order component
 // useCallback used to memoize functions
 // useMemo used to memoize values
+
+// STATE MANAGEMENT
+
+/*
+  local stotage
+  context API
+  libs (Zustand vs Redux)
+*/

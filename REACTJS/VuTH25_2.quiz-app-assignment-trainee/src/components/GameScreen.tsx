@@ -1,35 +1,67 @@
-import questions from "../data/questions.json"
-
 interface GameScreenProps {
-  questions: typeof questions;
+  questions: any[];
+  currentIndex: number;
+  answers: Record<number, number>;
+  onSelect: (questionId: number, choiceIdx: number) => void;
+  onNext: () => void;
+  onPrev: () => void;
+  onSubmit: () => void;
 }
 
-
-const GameScreen = ({}) => {
+const GameScreen = ({
+  questions,
+  currentIndex,
+  answers,
+  onSelect,
+  onNext,
+  onPrev,
+  onSubmit,
+}: GameScreenProps) => {
+  const q = questions[currentIndex];
+  const total = questions.length;
+  const isFirst = currentIndex === 0;
+  const isLast = currentIndex === total - 1;
   return (
-    <div className="mx-auto min-h-screen">
-      <div className="flex justify-center gap-5 border py-4">
-        <button className="cursor-pointer rounded-lg bg-gray-400 px-10 py-3 font-bold shadow-xl">
+    <div className="card game-screen">
+      <div className="meta">
+        <div className="qcount">
+          Question {currentIndex + 1} / {total}
+        </div>
+      </div>
+
+      <div className="question-block">
+        <h2 className="question">{q.question_content}</h2>
+
+        <ul className="choices">
+          {q.answers.map((ans: { answer_content: string; correct: boolean }, idx: number) => {
+            const selected = answers[q.id] === idx;
+            return (
+              <li
+                key={idx}
+                className={`choice ${selected ? "selected" : ""}`}
+                onClick={() => onSelect(q.id, idx)}
+              >
+                <span className="choice-text">{ans.answer_content}</span>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+
+      <div className="controls">
+        <button className="btn prev" onClick={onPrev} disabled={isFirst}>
           Previous
         </button>
-        <button className="cursor-pointer rounded-lg bg-green-300 px-10 py-3 font-bold shadow-xl">
-          Next
-        </button>
-      </div>
 
-      <div>
-        <p>10:00</p>
-        <p>Question: 1/5</p>
-        <p>What is React?</p>
-      </div>
-
-      <div>
-        {questions.map((item) => (
-          <div>
-            <input type="radio" id={item.id} name="answer" />
-            <label htmlFor={item.id.toString()}>{item.question_content}</label>
-          </div>
-        ))}
+        {!isLast ? (
+          <button className="btn main" onClick={onNext}>
+            Next
+          </button>
+        ) : (
+          <button className="btn submit" onClick={onSubmit}>
+            Submit
+          </button>
+        )}
       </div>
     </div>
   );

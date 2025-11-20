@@ -42,7 +42,7 @@ let info = `My name is ${userName} and I am ${age} years old.`;
 let fruits = ['apple', 'banana', 'cherry'];
 
 let arr = [1, 2, 3, 4, 5];
-function modifyArr(arr, value) {
+function modifyArr (arr, value) {
     return arr.push(value)
 }
 console.log(arr.pop());
@@ -52,3 +52,14 @@ console.log(string.toLowerCase().split(' '));
 string.split(' ')
 let newStr = string.toLowerCase().split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
 console.log(newStr)
+
+var a = 1
+var b = 2
+function swap (a, b) {
+    var temp;
+    a = temp;
+    temp = b
+    b = a
+}
+swap(a, b)
+console.log(a, b)
