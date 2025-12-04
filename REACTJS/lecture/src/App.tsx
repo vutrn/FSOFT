@@ -1,15 +1,15 @@
-import { createContext, useState } from "react";
+import { useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
+import { AuthContext } from "./contexts/authContext";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import NotFound from "./pages/NotFound";
+import PrivateRouter from "./pages/PrivateRouter";
 import UserDetail from "./pages/UserDetail";
 import Users from "./pages/Users";
-import PrivateRouter from "./pages/PrivateRouter";
 
-export const AuthContext = createContext({} as any);
 
 function App() {
   const [isLogin, setIsLogin] = useState(false);
@@ -22,7 +22,7 @@ function App() {
         <Routes>
           <Route path='/home' element={<Home />} />
 
-          <Route path='/' element={<PrivateRouter isLogin={isLogin} />}>
+          <Route path='/' element={<PrivateRouter />}>
             <Route path='/users' element={<Users />} />
             <Route path='/users/:userId' element={<UserDetail />} />
           </Route>
@@ -69,6 +69,6 @@ export default App;
 
 /*
   local stotage
-  context API
+  context API: re-render all components (theme, auth)
   libs (Zustand vs Redux)
 */

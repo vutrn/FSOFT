@@ -63,3 +63,9 @@ function swap (a, b) {
 }
 swap(a, b)
 console.log(a, b)
+
+function test () {
+    console.log(123)
+}
+
+console.log(test())
